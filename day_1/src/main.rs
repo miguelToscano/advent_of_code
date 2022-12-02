@@ -11,17 +11,8 @@ fn get_total_calories_by_elf(calories_by_elf: &Vec<u64>) -> u64 {
 
 fn main() {
     let input = get_input();
-    let total_calories_by_elf = input.iter().map(|row| get_total_calories_by_elf(row)).collect::<Vec<u64>>();
-    
-    let mut highest_calories_index = 0;
-    let mut highest_calories_value = total_calories_by_elf[0];
-
-    for (index, value) in total_calories_by_elf.iter().enumerate() {
-        if *value >= highest_calories_value {
-            highest_calories_index = index;
-            highest_calories_value = *value;
-        }
-    }
-
-    println!("The elf carrying the most calories is: {:?} with: {:?} calories total", highest_calories_index + 1, highest_calories_value);
+    let mut total_calories_by_elf = input.iter().map(|row| get_total_calories_by_elf(row)).collect::<Vec<u64>>();
+    total_calories_by_elf.sort();
+    println!("The elf carrying the most calories carries: {:?} calories", total_calories_by_elf.iter().last().unwrap());
+    println!("The 3 elves carrying the most calories carry: {:?} calories in total", total_calories_by_elf.iter().last().unwrap() + total_calories_by_elf.iter().nth_back(1).unwrap() + total_calories_by_elf.iter().nth_back(2).unwrap());
 }
