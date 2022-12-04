@@ -1,4 +1,5 @@
 pub mod part_1;
+pub mod part_2;
 
 fn get_input() -> Vec<String> {
     let input = vec![
@@ -1010,4 +1011,5 @@ fn get_input() -> Vec<String> {
 fn main() {
     let input = get_input();
     part_1::get_answer(&input);
+    part_2::get_answer(&input);
 }
