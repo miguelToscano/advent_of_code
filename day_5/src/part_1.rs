@@ -646,11 +646,9 @@ pub fn get_answer() {
         }
     }
 
-    print!("After movements...");
+    println!("After movements...");
 
     for stack in stacks {
         stack.print_top();
     }
-
-    println!("Answer is: ");
 }
